@@ -1,6 +1,30 @@
-/* Main CSS */
-
 /* Import widget CSS */
 @import url("widgets/header.css");
 @import url("widgets/sidebar.css");
 @import url("widgets/footer.css");
+
+/* Main CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Layout --- */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- Main Content --- */
+.main-content {
+  flex: 1; /* fills remaining space */
+  padding: 2rem;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+/* --- Remix Icon --- */
+.ri-xxs, .ri-xs, .ri-sm, .ri-lg, .ri-xl, .ri-1x, .ri-2x, .ri-3x, .ri-4x, .ri-5x, .ri-6x, .ri-7x, .ri-8x, .ri-9x, .ri-10x {
+  color: #ffffffff;
+}

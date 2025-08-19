@@ -4,24 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/icon/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/icon/favicon.svg">
     <title>My Starter Kit</title>
 
     <!-- Correct relative path to CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body>
-    <!-- Sidebar placeholder -->
+    <!-- Header -->
     <div id="header-container"></div>
-    <div id="sidebar-container"></div>
-    
-    <!-- Main content -->
-    <main class="main-content">
-        <h1>Welcome</h1>
-        <p>This is the main content area.</p>
-    </main>
-    
+
+    <!-- Layout wrapper: sidebar + content -->
+    <div class="layout">
+        <div id="sidebar-container"></div>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <h1>Welcome</h1>
+            <p>This is the main content area.</p>
+        </main>
+    </div>
+
+    <!-- Footer -->
     <div id="footer-container"></div>
 
     <!-- Correct relative path to JS -->
