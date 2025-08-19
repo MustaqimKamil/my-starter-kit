@@ -3,15 +3,15 @@
     flex-shrink: 0;
     width: 260px;
     height: 100vh;
-    background: #1e293b;
-    color: #fff;
+    background: var(--color-secondary);
+    color: var(--color-background);
     padding: 1rem;
     transition: width 0.3s ease;
     overflow: hidden;
 }
 
 .sidebar.collapsed {
-    width: 95px;
+    width: 6rem;
 }
 
 /* --- Sidebar Header --- */
@@ -33,6 +33,10 @@
 
 .sidebar.collapsed .sidebar-logo {
     cursor: pointer;
+}
+
+.sidebar.collapsed .sidebar-logo:hover i {
+    color: var(--color-primary);
 }
 
 /* Toggle button */
@@ -58,34 +62,57 @@
 }
 
 .sidebar-nav li {
-    margin: 1rem 0;
+    margin: 0.7rem 0;
 }
 
 .sidebar-nav a {
     display: flex;
     align-items: center;
-    padding: 10px 16px;
+    padding: 1rem;
     text-decoration: none;
-    color: #e2e8f0;
-    font-size: 1.2rem;
+    color: var(--color-background);
+    font-size: var(--font-size-base);
     transition: color 0.2s ease;
+    background-color: var(--color-tertiary);
+    border-radius: 1.2rem;
 }
 
 .sidebar-nav a:hover {
-    color: #38bdf8;
+    /* color: var(--color-tertiary); */
+    background-color: var(--color-primary);
 }
 
 /* Icon + Label */
 .sidebar-nav .icon,
 .sidebar-logo i,
 .sidebar-toggle i {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: block;
     width: 30px;
     text-align: center;
     line-height: 1;
     flex-shrink: 0;
 }
+
+.sidebar-logo i,
+.sidebar-toggle i {
+    font-size: 1.5rem;
+}
+
+.sidebar-nav .icon {
+    color: inherit;
+}
+
+/* Need to re-assign colour because inside button */
+.sidebar-toggle {
+    color: var(--color-background);
+}
+
+.sidebar-toggle:hover i {
+    color: var(--color-primary);
+}
+/* Need to re-assign colour because inside button */
+
 
 .sidebar-nav .label {
     margin-left: 10px;

@@ -4,10 +4,28 @@
 @import url("widgets/footer.css");
 
 /* Main CSS */
+:root {
+  /* Colors */
+  --color-primary: #d35400;      /* Brick Orange */
+  --color-secondary: #b33212ff;    /* Maroon */
+  --color-tertiary: #2b2b2bff;     /* Black */
+  --color-background: #e5e5e5ff;   /* White */
+
+  /* Typography */
+  --font-size-base: 1rem;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* --- Body --- */
+body {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  font-size: 1rem; /* use rem for scaling */
+  line-height: 1.5rem;
 }
 
 /* --- Layout --- */
@@ -20,11 +38,6 @@
 .main-content {
   flex: 1; /* fills remaining space */
   padding: 2rem;
-  background: #f8fafc;
+  background: var(--color-background);
   transition: all 0.3s ease;
-}
-
-/* --- Remix Icon --- */
-.ri-xxs, .ri-xs, .ri-sm, .ri-lg, .ri-xl, .ri-1x, .ri-2x, .ri-3x, .ri-4x, .ri-5x, .ri-6x, .ri-7x, .ri-8x, .ri-9x, .ri-10x {
-  color: #ffffffff;
 }
