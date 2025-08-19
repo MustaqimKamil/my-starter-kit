@@ -1,0 +1,5 @@
+/* Main CSS */
+
+/* Import widget CSS */
+@import url("widgets/sidebar.css");
+@import url("widgets/footer.css");
