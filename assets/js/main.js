@@ -1,4 +1,5 @@
 // assets/js/main.js
+import { initHeader } from './widgets/header.js';
 import { initSidebar } from './widgets/sidebar.js';
 import { initFooter } from './widgets/footer.js';
 
@@ -14,5 +15,6 @@ function loadHTML(containerId, filePath, callback) {
 }
 
 // Use correct relative paths for your folder
+loadHTML('header-container', 'widgets/header.html', () => initHeader());
 loadHTML('sidebar-container', 'widgets/sidebar.html', () => initSidebar());
 loadHTML('footer-container', 'widgets/footer.html', () => initFooter());

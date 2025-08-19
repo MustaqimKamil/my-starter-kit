@@ -1,4 +1,4 @@
 // Footer widget logic
-export function initFooter() {
-    console.log("✅ Footer initialized");
+export function initHeader() {
+    console.log("✅ Header initialized");
 }

@@ -1,5 +1,6 @@
 /* Main CSS */
 
 /* Import widget CSS */
+@import url("widgets/header.css");
 @import url("widgets/sidebar.css");
 @import url("widgets/footer.css");
