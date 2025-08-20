@@ -5,16 +5,57 @@ import { initFooter } from './widgets/footer.js';
 
 // Utility to load external HTML
 function loadHTML(containerId, filePath, callback) {
-    fetch(filePath)
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById(containerId).innerHTML = html;
-            if (callback) callback();
+    return fetch(filePath)
+        .then(res => {
+            if (!res.ok) throw new Error(`Failed to load ${filePath}: ${res.status}`);
+            return res.text();
         })
-        .catch(err => console.error("Error loading", filePath, err));
+        .then(html => {
+            const container = document.getElementById(containerId);
+            if (!container) throw new Error(`Container ${containerId} not found`);
+            container.innerHTML = html;
+
+            // Wait for next tick to ensure DOM is ready
+            return new Promise(resolve => {
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        if (callback) {
+                            try {
+                                callback();
+                            } catch (err) {
+                                console.error(`Error initializing ${filePath}:`, err);
+                            }
+                        }
+                        resolve();
+                    }, 10);
+                });
+            });
+        })
+        .catch(err => {
+            console.error("Error loading", filePath, err);
+            throw err;
+        });
 }
 
-// Use correct relative paths for your folder
-loadHTML('header-container', 'widgets/header.html', () => initHeader());
-loadHTML('sidebar-container', 'widgets/sidebar.html', () => initSidebar());
-loadHTML('footer-container', 'widgets/footer.html', () => initFooter());
+// Load widgets sequentially to avoid race conditions
+async function initializeApp() {
+    try {
+        // Load header first and ensure it's fully initialized
+        await loadHTML('header-container', 'widgets/header.html', () => initHeader());
+
+        // Load sidebar and footer in parallel
+        await Promise.all([
+            loadHTML('sidebar-container', 'widgets/sidebar.html', () => initSidebar()),
+            loadHTML('footer-container', 'widgets/footer.html', () => initFooter())
+        ]);
+    } catch (error) {
+        console.error('Failed to initialize app:', error);
+    }
+}
+
+// Start initialization when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
