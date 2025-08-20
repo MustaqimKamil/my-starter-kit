@@ -1,0 +1,149 @@
+/* =============== Header (scoped) =============== */
+:root {
+  --header-height: 64px;
+  --header-bg: #fff;
+  --header-text: #2b2b2b;
+  --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--color-background);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  transition: padding 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-inner {
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+}
+
+.header.is-scrolled .header-inner {
+  padding: 0.4rem 1rem;
+}
+
+/* Brand */
+.header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--header-text);
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.header-logo {
+  font-size: 1.5rem;
+}
+.header-title {
+  font-size: var(--font-size-base);
+}
+
+/* Nav (desktop) */
+.site-nav { margin-left: auto; }
+.site-nav__list {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+}
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem .75rem;
+  text-decoration: none;
+  color: #333;
+  border-radius: 10px;
+  transition: background .2s ease, color .2s ease;
+}
+.site-nav__link:hover {
+  background: rgba(0,0,0,.05);
+  color: var(--color-primary);
+}
+.site-nav__link.is-active {
+  color: var(--color-primary);
+  background: rgba(211,84,0,.10); /* uses your primary hue */
+}
+
+/* Actions */
+.header__actions {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-left: .5rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.icon-btn:hover { background: rgba(0,0,0,.05); }
+.icon-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Hide burger on desktop */
+.sidebar-header-toggle { display: none; }
+
+/* =============== Mobile drawer =============== */
+@media (max-width: 768px) {
+  .sidebar-header-toggle { display: inline-flex; }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+    width: 280px;
+    background: var(--color-background);
+    box-shadow: -2px 0 12px rgba(0,0,0,.08);
+    padding: 5rem 1rem 1rem;
+    transform: translateX(100%);
+    transition: transform .25s ease;
+    z-index: 1001;
+  }
+  .site-nav__list {
+    flex-direction: column;
+    gap: .25rem;
+  }
+  .header.is-open .site-nav {
+    transform: translateX(0);
+  }
+
+  /* Overlay */
+  .site-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+    z-index: 1000;
+  }
+  .header.is-open + .site-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* =============== Dark theme (optional) =============== */
+body.theme-dark {
+  background: #121212;
+  color: #eaeaea;
+}
+body.theme-dark .header { background: #1a1a1a; }
+body.theme-dark .site-nav__link { color: #eaeaea; }
+body.theme-dark .site-nav__link:hover { background: rgba(255,255,255,.08); }

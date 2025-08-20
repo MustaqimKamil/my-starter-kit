@@ -6,9 +6,9 @@
 /* Main CSS */
 :root {
   /* Colors */
-  --color-primary: #d35400;      /* Brick Orange */
-  --color-secondary: #b33212ff;    /* Maroon */
-  --color-tertiary: #2b2b2bff;     /* Black */
+  --color-primary: #d35400e0;      /* Brick Orange */
+  --color-secondary: #b33212e3;    /* Maroon */
+  --color-tertiary: #2b2b2bd2;     /* Black */
   --color-background: #e5e5e5ff;   /* White */
 
   /* Typography */
@@ -39,5 +39,5 @@ body {
   flex: 1; /* fills remaining space */
   padding: 2rem;
   background: var(--color-background);
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
 }
