@@ -140,7 +140,7 @@
         top: 0;
         right: 0;
         height: 100vh;
-        z-index: 900;
+        z-index: 901;
         transform: translateX(100%);
         transition: transform 0.3s ease;
     }
@@ -169,7 +169,7 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
-        z-index: 901;
+        z-index: 900;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
