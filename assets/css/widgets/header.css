@@ -1,18 +1,12 @@
 /* =============== Header (scoped) =============== */
-:root {
-  --header-height: 64px;
-  --header-bg: #fff;
-  --header-text: #2b2b2b;
-  --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
 .header {
   position: sticky;
   top: 0;
   z-index: 801;
-  background: var(--color-background);
+  background: var(--color-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
   transition: padding 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .header-inner {
@@ -34,7 +28,7 @@
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: var(--header-text);
+  color: var(--color-background);
   font-weight: 700;
   letter-spacing: .2px;
 }
